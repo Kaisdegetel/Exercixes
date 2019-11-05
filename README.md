@@ -20,23 +20,11 @@
 4)
 
 - Créer un serveur express toujours avec la commande express --esj
-- Créer les pages : index pour afficher un lien vers une formulaire, formulaire pour afficher la formulaire et result pour afficher le text saisi
+- Créer les pages : "index" pour afficher un lien vers un formulaire, "formulaire" pour afficher le formulaire et "result" pour afficher le text saisi
 - Créer 3 routes:
         - "/" home page index
         - "/formulaire" (get) pour naviger vers la page formulaire
         - "/formulaire" (post) pour envoyer le text saisi vers la page result
 - Créer deux middleware pour réduire une chaine vers 32 charactères et pour supprimer les tags HTML
 - Pour ce dernier j'ai utilisé une librairie externe striptags (npm i --save striptags) voir le lien https://www.npmjs.com/package/striptags
-
-
-
-3) le formulaire pointe sur POST /formulaire
-
-4) réaliser une page POST /formulaire qui affiche les informations du text area.
-
-5) Il faut réaliser deux middleware pour la validation des entrées
-
-6) un middleware "trunk32"  qui réduit à 32 ma chaine qui tu vas recevoir dans req.body.<leNomDuTextArea>
-
-7) un middleware "noHTML" qui va supprimer les codes HTML du textArea
 
