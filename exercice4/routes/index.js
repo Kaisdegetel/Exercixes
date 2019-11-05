@@ -1,4 +1,5 @@
 var express = require('express');
+
 var striptags = require('striptags');
 
 var router = express.Router();
@@ -12,31 +13,25 @@ router.get('/formulaire', function(req, res, next) {
   res.render('formulaire');
 })
 
+router.post('/formulaire', trunk32, noHTML, function(req,res){
 
-
-router.post('/formulaire',function(req,res){
-
-  // console.log("post formulaire")
-  var text = req.body.text
-
-  text = noHTML(text)
-  text = trunk32(text);  
- 
-  // console.log(text);
-  res.render('result',{text: text});
- 
-   
+  res.render('result',{text: req.body.text});  
 });
 
-trunk32 = function(string){
-  return string.substr(0,32)
-}
+function trunk32(req, res, next) {
 
-noHTML = function(string){
-
- return striptags(string);;
+  req.body.text = req.body.text.substr(0,32)   
+  next()
 
 }
+
+function noHTML(req,res,next){
+  req.body.text = striptags(req.body.text);
+  next()
+
+}
+
+
 
 
 module.exports = router;
